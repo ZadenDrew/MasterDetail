@@ -69,7 +69,7 @@ class ItemListActivity : AppCompatActivity() {
             // capturamos los errores de la peticion
             try {
                 // peticion a un servidor rest que devuelve un json generico
-                val respuesta = URL("https://jsonplaceholder.typicode.com/posts").readText()
+                val respuesta = URL("http://18.216.10.88/wp5/?rest_route=/wp/v2/posts/").readText()
                 // parsing data
                 // sabemos que recibimos un array de objetos JSON
                 val miJSONArray = JSONArray(respuesta)
@@ -77,7 +77,7 @@ class ItemListActivity : AppCompatActivity() {
                 for (jsonIndex in 0..(miJSONArray.length() - 1)) {
                     val idpost = miJSONArray.getJSONObject(jsonIndex).getString("id")
                     val titulo = miJSONArray.getJSONObject(jsonIndex).getString("title")
-                    val resumen = miJSONArray.getJSONObject(jsonIndex).getString("body")
+                    val resumen = miJSONArray.getJSONObject(jsonIndex).getString("content")
                     // asignamos los valores en el constructor de la data class 'DummyItem'
                     // añadimos al array list
                     DummyContent.addItem(DummyItem(idpost, titulo, resumen))

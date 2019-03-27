@@ -7,4 +7,5 @@ package com.example.masterdetail.dummy
 data class DummyItem(val id: String, val title: String, val resumen: String) {
     // personalizamos toString para que nos devuelva el titulo
     override fun toString(): String = title
+
 }
